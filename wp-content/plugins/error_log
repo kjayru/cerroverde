@@ -1,0 +1,14 @@
+[06-Jan-2018 04:22:43 America/Chicago] PHP Fatal error:  Call to undefined function add_action() in /home1/m3d14coz/public_html/devcerroverdev2/wp-content/plugins/hello.php on line 60
+[12-Jan-2018 04:47:49 America/Chicago] PHP Fatal error:  Call to undefined function add_action() in /home1/m3d14coz/public_html/devcerroverdev2/wp-content/plugins/hello.php on line 60
+[26-May-2018 19:16:17 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function add_action() in /home/cerroverdecom/public_html/wp-content/plugins/hello.php:60
+Stack trace:
+#0 {main}
+  thrown in /home/cerroverdecom/public_html/wp-content/plugins/hello.php on line 60
+[30-May-2018 10:07:22 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function add_action() in /home/cerroverdecom/public_html/wp-content/plugins/hello.php:60
+Stack trace:
+#0 {main}
+  thrown in /home/cerroverdecom/public_html/wp-content/plugins/hello.php on line 60
+[01-Jun-2018 13:19:11 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function add_action() in /home/cerroverdecom/public_html/wp-content/plugins/hello.php:60
+Stack trace:
+#0 {main}
+  thrown in /home/cerroverdecom/public_html/wp-content/plugins/hello.php on line 60
