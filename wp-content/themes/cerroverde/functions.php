@@ -23,8 +23,11 @@ function cerroverde_setup() {
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
-	'menu-1' => 'Menu Principal',
-	'footer_menu' => 'My Custom Footer Menu',
+        'top' => 'Menu top pagina',
+        'footer' => 'Menu pie pagina',
+        'sidebar1' => 'Menu sidebar',                      
+        'sidebar2' => 'Menu sidebar',
+        'sidebar3' => 'Menu sidebar',
   ) );
 	
 	add_theme_support("html5", array("search-form",

@@ -7,7 +7,7 @@ while ( have_posts() ) {
 	 the_post();
  ?>
 
-         <section class="slider-principal rotador-contenedor animation fadeInUp animation-visible" data-animation="fadeInUp">
+         <section class="slider-principal version2 rotador-contenedor animation fadeInUp animation-visible" data-animation="fadeInUp">
                     <div class="swiper-container rotador-padre">
                         <div class="swiper-wrapper rotador-interior rt-home">
                         
@@ -27,27 +27,28 @@ while ( have_posts() ) {
 
 				foreach($sliders as $slider){
 					$tipo = get_field("tipo_slide",$slider->ID);
-					$tipo_video = get_field("tipo_video",$slider->ID);
-					$file_video = get_field("file_video",$slider->ID);
+					$modal = get_field("modal",$slider->ID);
+					
 					$embed_video = get_field("embed_video",$slider->ID);
 					$embed_video_fondo = get_field("embed_video_fondo",$slider->ID);
-					$media = get_field("media_file",$slider->ID);
-					$descripcion = get_field("descripcion",$slider->ID);
-					$tipo_enlace = get_field("tipo_enlace",$slider->ID);
-					$enlace_externo = get_field("enlace_externo",$slider->ID);
-					$enlace_interno = get_field("enlace_interno",$slider->ID);
-					$enlace = get_field("enlace",$slider->ID);
+					$imagen_fondo = get_field("imagen_fondo",$slider->ID);
 					$fondo_mobile = get_field("fondo_mobile",$slider->ID);
+					$descripcion = get_field("descripcion",$slider->ID);
+					$texto_boton = get_field("texto_boton",$slider->ID);
+					$tipo_enlace = get_field("tipo_enlace",$slider->ID);
+					$enlace = get_field("enlace",$slider->ID);
+					$enlace_externo = get_field("enlace_externo",$slider->ID);
 					
 					
-				 if($tipo=="Video"){ ?>
+					
+				        if($tipo=="Video"){ ?>
 					 
 							<article class="swiper-slide rotador-unidad">
 						
-				 <?php }else{ 
+				 <?php  }else{ 
 								 if(!$fondo_mobile){
 					 ?>
-									 <article class="swiper-slide rotador-unidad" style="background:url(<?php echo $media['url']; ?>) no-repeat center center; background-size:cover;">
+									 <article class="swiper-slide rotador-unidad" style="background:url(<?php echo $imagen_fondo['url']; ?>) no-repeat center center; background-size:cover;">
 							 <?php
 								  }else{ ?>
 									 <article class="swiper-slide rotador-unidad" style="background:url(<?php echo $fondo_mobile['url']; ?>) no-repeat center center; background-size:cover;">
@@ -56,32 +57,27 @@ while ( have_posts() ) {
 					 ?>
 					
 						 
-					<?php if($tipo==="Video"){
+					<?php if($tipo=="Video"){
 						
-								if( $tipo_video!="embed"){
+							
 						?>
-						   <div class="bg-video">
-							 <video autoplay loop>
-								 <source src="<?php echo $file_video['url']; ?>" type="video/mp4">
-							 </video>
-						   </div>
-						 <?php 
-								}else{
-						 ?>
 							 <div class="bg-video">
 							   <iframe id="player" class="playerdiv hidden-xs" type="text/html" width="640" height="360" allowfullscreen="1"
 							   src="https://www.youtube.com/embed/<?php echo $embed_video_fondo ?>?rel=0&autoplay=1&mute=1&autohide=0&controls=0&loop=1&autopause=0&playlist=<?php echo $embed_video ?>" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+							 
 							 <?php  if(!$fondo_mobile){ ?>
-									 <div class="bgvideo_movil hidden-md hidden-sm hidden-lg" style="background:url(https://i.ytimg.com/vi/<?php echo $embed_video; ?>/maxresdefault.jpg) no-repeat center center; background-size:cover;">
+									 <div class="bgvideo_movil op1 hidden-md hidden-sm hidden-lg" style="background:url(<?php $imagen_fondo['url']; ?>) no-repeat center center; background-size:cover;">
+									 </div>
 									 <?php }else{ ?>
-									 <div class="bgvideo_movil hidden-md hidden-sm hidden-lg" style="background:url(<?php echo $fondo_mobile['url']; ?>) no-repeat center center; background-size:cover;">
+									 <div class="bgvideo_movil op2 hidden-md hidden-sm hidden-lg" style="background:url(<?php echo $fondo_mobile['url']; ?>) no-repeat center center; background-size:cover;">
+									 </div>
 									<?php } ?>  
-							   </div>
+							   
 								<div class="patronvideo"></div>
 						   </div>
 						 
 						 <?php		
-							 }
+							
 					}
 						  
 				
@@ -89,12 +85,12 @@ while ( have_posts() ) {
                                 
                                 <div class="limite">
                                     <p>
-                                       <?php  echo $descripcion; ?>
+                                       <?php  echo htmlspecialchars_decode($descripcion, ENT_NOQUOTES) ?>
                                     </p>
-                                        <?php  if( $tipo_video!="embed"){ ?>
-                                         <a href="<?php  echo $enlace; ?>" class="boton naranja">leer más</a>    
+                                        <?php  if(!$modal){ ?>
+                                         <a href="<?php  echo $enlace; ?>" class="boton naranja"><?php echo $texto_boton; ?></a>    
 										 <?php }else{ ?>
-										<a href="#" class="boton naranja modal_slide" data-video="<?php echo $embed_video ?>">Ver video completo</a>    
+										<a href="#" class="boton naranja modal_slide" data-video="<?php echo $embed_video ?>"><?php echo $texto_boton; ?></a>    
 										 <?php } ?>
                                 </div>
                             </article>
