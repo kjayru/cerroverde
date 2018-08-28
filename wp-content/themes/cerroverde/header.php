@@ -25,25 +25,7 @@
 
 <link href="//fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
 <link href="//fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
-<!-- 
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-108111895-1"></script>
-<script>
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
 
-gtag('config', 'UA-108111895-1');
-</script>-->
-<!-- ANALITYCS add 17/10/17 -->
-<!-- Global site tag (gtag.js) - Google Analytics 
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-108246606-1"></script>
-<script>
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'UA-108246606-1');
-</script>
--->
 <!-- ANALITYCS add 20/10/17 -->
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-108246606-1"></script>
@@ -124,7 +106,7 @@ function geturl3($url){
 		<div class="row" >
             <h1><a href="/"><img src="<?php echo get_template_directory_uri(); ?>/img/cerro-verde.png" alt="" /></a></h1>
             <div class="canv-btn pull-right hidden-sm hidden-md hidden-lg">
-              <!--<a href="#" class="buscarmovil hidden-lg hidden-sm hidden-md"> <img src="<?php echo get_template_directory_uri(); ?>/img/buscar.png" alt="" class="img-responsive"></a>-->
+
               <a href="#" class="responsive-nav" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
              <div class="c-hamburger"><span class="l-menu"></span></div>
               </a>
@@ -138,103 +120,14 @@ function geturl3($url){
                   </li>         
                 </ul>
               </div>
-            <div class="menu-principal-container pull-right">
-                <ul id="navPrincipal">
+            
 
-                <li>
-
-                   <a href="/conocenos" class="<?php geturl("conocenos"); ?>" >Conócenos </a><span class="hidden-lg hidden-sm hidden-md icon-arrow-down"> <i class="fa fa-angle-right hidden-md hidden-lg hidden-sm" aria-hidden="true"></i></span>
-
-                    <ul class="submenu">
-						  <li><a href="/conocenos/vision-y-mision" class="<?php geturl("vision-y-mision"); ?>"> Visión y Misión</a></li>
-                          <li><a href="/conocenos/historia" class="<?php geturl("historia"); ?>">Historia</a></li>
-
-                          <li><a href="/conocenos/nuestras-politicas" class="<?php geturl("nuestras-politicas"); ?>"> Nuestras Políticas</a></li>
-
-                          <li><a href="/conocenos/certificaciones" class="<?php geturl("certificaciones"); ?>"> Certificaciones</a> </li>
-
-                          <li><a href="/conocenos/premios" class="<?php geturl("premios"); ?>"> Premios Obtenidos</a> </li>
-
-                          <li><a href="/conocenos/somos-parte-de" class="<?php geturl("somos-parte-de"); ?>"> Somos parte de</a> </li>
-
-                    </ul>
-
-                </li>
-
-                <li class="he1">
-
-                <a href="/desarrollo-sostenible/responsabilidad-social-empresarial" class="<?php geturl("desarrollo-sostenible"); ?>">Desarrollo sostenible </a><span class="hidden-lg hidden-sm hidden-md icon-arrow-down">
-
-                    <i class="fa fa-angle-right hidden-md hidden-lg hidden-sm" aria-hidden="true"></i></span>
-
-                    <ul class="submenu">
-
-
-
-                        <li><a href="/desarrollo-sostenible/responsabilidad-social-empresarial" class="<?php geturl("responsabilidad-social-empresarial"); ?>">Responsabilidad Social Empresarial</a></li>
-                         <li><a href="/desarrollo-sostenible/voluntariados-corporativos" class="<?php geturl("voluntariados-corporativos"); ?>">Voluntariados Corporativos </a></li>
-
-
-
-                    </ul>
-
-                </li>
-
-                <li>
-
-                    <a href="/relacion-con-inversionistas" class="<?php geturl("relacion-con-inversionistas"); ?>">Inversionistas</a>
-
-                        <span class="hidden-lg hidden-sm hidden-md icon-arrow-down">
-
-                    <i class="fa fa-angle-right hidden-md hidden-lg hidden-sm" aria-hidden="true"></i></span>
-
-                    <ul class="submenu">
-
-
-
-                        <li>
-
-                        <a href="/relacion-con-inversionistas/junta-general-de-accionistas" class="<?php geturl("junta-general-de-accionistas"); ?>">Junta general de accionistas</a>
-
-                        </li>
-
-                        <li>
-
-                        <a href="/relacion-con-inversionistas/proteccion-de-accionistas-minoritarios" class="<?php geturl("proteccion-de-accionistas-minoritarios"); ?>">Protección de accionistas minoritarios</a>
-
-                        </li>
-
-                        <li>
-
-                        <a href="/relacion-con-inversionistas/contacto" class="<?php geturl2("contacto"); ?>">Contacto</a>
-
-                        </li>
-
-						
-
-                    </ul>
-
-                </li>
-                
-                <li><a href="#">Media</a>
-                   <span class="hidden-lg hidden-sm hidden-md icon-arrow-down">
-
-                    <i class="fa fa-angle-right hidden-md hidden-lg hidden-sm" aria-hidden="true"></i></span>
-                    <ul class="submenu">
-                        <!--<li ><a href="/category/media/noticias/">Noticias</a></li>-->
-                        <li ><a href="/category/media/prensa/">Notas Prensa</a></li>
-                         <li ><a href="/category/media/publicaciones/brochure/">Publicaciones</a></li>
-                        
-                    </ul>
-                    
-                 </li>
-               <li><a href="/contactanos">Contáctanos</a></li>
-               <li>
-               <a href="/trabaja-con-nosotros" class="<?php geturl("trabaja-con-nosotros"); ?>">Trabaja <br> con nosotros</a>
-               </li>
-       </ul>
-            </div>
-       		 
+         <?php
+          wp_nav_menu( array( 
+              'theme_location' => 'top', 
+              'container_class' => 'menu-principal-container pull-right',
+              'menu_id' => 'navPrincipal') ); 
+          ?>	 
 
    </nav>
   </div>

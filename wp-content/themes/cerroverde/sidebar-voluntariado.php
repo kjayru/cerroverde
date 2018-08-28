@@ -10,15 +10,17 @@
 if ( ! is_active_sidebar( 'sidebar-1' ) ) {
 	return;
 }
+
+wp_nav_menu( array( 
+    'theme_location' => 'sidebar3', 
+    'container_class' => 'SideNav',
+    'walker' => new Walker_Quickstart_Menu(),
+    'menu_class' => 'nav nav-list hidden-xs',
+    'menu_id' => 'menu-sidebar')
+ ); 
 ?>
 
-<ul class="nav nav-list hidden-xs"> 
-  <li class="nav-header">DESARROLLO SOSTENIBLE</li>   
-  
-   <li> <a href="/desarrollo-sostenible/responsabilidad-social-empresarial" class="<?php geturl2("responsabilidad-social-empresarial"); ?>">Responsabilidad social empresarial</a></li>
-    <li><a href="/desarrollo-sostenible/voluntariados-corporativos/" class="<?php geturl2("voluntariados-corporativos"); ?>"> Voluntariados corporativos</a></li> 
-  
-</ul>
+
 
 
 <div class="parsys hidden-sm hidden-md hidden-lg">
@@ -28,23 +30,17 @@ if ( ! is_active_sidebar( 'sidebar-1' ) ) {
 
 	<div class="sidenavtitle">Saltar sección<div class="mh-mn-menu-arrow icon-arrow-down"><i class="fa fa-angle-right" aria-hidden="true"></i></div></div>
         <div class="panel-group" id="sidenav">
-            <h4 class="root-page-panel"> 
-                <a href="/desarrollo-sostenible/responsabilidad-social-empresarial" class="collapsed">Desarrollo Sostenible</a>
-            </h4>
-        
-                  <div class="panel panel-default">
-                  		   <div class="panel-heading">
-                             <h4 class="panel-title">
-                                 <a href="/desarrollo-sostenible/responsabilidad-social-empresarial" class="collapsed">Responsabilidad social empresarial</a>
-                             </h4>
-                           </div>
-                           <div class="panel-heading">
-                             <h4 class="panel-title">
-                                 <a href="/desarrollo-sostenible/voluntariados-corporativos" class="collapsed">Voluntariados corporativos</a>
-                             </h4>
-                           </div>
-                             
-                  </div>
+            
+            <?php
+             wp_nav_menu( array( 
+                'theme_location' => 'sidebar3', 
+                'container_class' => 'SideNavMov',
+                'walker' => new Walker_sidebar_movile(),
+                'menu_class' => 'panel panel-default',
+                )
+            );   
+            ?>
+                 
                     
         </div>
 	 </div>

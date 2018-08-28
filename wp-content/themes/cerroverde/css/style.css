@@ -5578,3 +5578,67 @@ span.hidden-lg.hidden-sm.hidden-md.icon-arrow-down {
 }
 
 
+/*footer dinamic*/
+ul#navBotton {
+    display: flex;
+    flex-wrap: wrap;
+}
+ul#navBotton>li {
+    display: block;
+    position: relative;
+    flex: 1 0 16%;
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+#navBotton .menu-item-has-children>a, #navBotton>li:last-child a, #navBotton>li:nth-child(4) a {
+    color: white;
+    display: inline-block;
+    text-transform: uppercase;
+    padding-bottom: 41px;
+}
+#navBotton ul.sub-menu li a {
+    color: white;
+    padding-top: 3px;
+    padding-bottom: 7px;
+    display: block;
+    font-size: 12px;
+}
+
+#navBotton ul.sub-menu {
+   margin-top:20px;
+}
+
+#navBotton ul.sub-menu li a {
+    text-transform:unset !important;
+}
+#navBotton .menu-item-has-children>a::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 50px;
+    left: 10px;
+    width: 40px;
+    height: 2px;
+    background: #fff;
+    margin-top: 20px;
+}
+.bottom-nav {
+    padding-top: 30px;
+    padding-bottom: 50px;
+}
+
+ul#navBotton li:last-child{
+    margin-right:0;
+}
+ul#navBotton>li>a {
+    cursor: default;
+}
+#menu-sidebar .nav-header>a{
+    font-size: 16px;
+    cursor: default;
+    font-weight: 300;
+}
+#menu-sidebar .nav-header>a:hover{
+    color: #666;
+}

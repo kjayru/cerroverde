@@ -10,16 +10,15 @@
 if ( ! is_active_sidebar( 'sidebar-1' ) ) {
 	return;
 }
+wp_nav_menu( array( 
+  'theme_location' => 'sidebar4', 
+  'container_class' => 'SideNav',
+  'walker' => new Walker_Quickstart_Menu(),
+  'menu_class' => 'nav nav-list hidden-xs',
+  'menu_id' => 'menu-sidebar')
+); 
 ?>
 
-
-<ul class="nav nav-list hidden-xs"> 
-  <li class="nav-header">RELACIÓN CON INVERSIONISTAS</li>        
-  <li><a href="/relacion-con-inversionistas/junta-general-de-accionistas" class="<?php geturl2("junta-general-de-accionistas"); ?>"> Junta general de accionistas</a></li>
-  <li><a href="/relacion-con-inversionistas/proteccion-de-accionistas-minoritarios" class="<?php geturl2("proteccion-de-accionistas-minoritarios"); ?>"> Protección de accionistas minoritarios</a></li>
-  <li><a href="/relacion-con-inversionistas/contacto" class="<?php geturl2("contacto"); ?>"> Contacto</a> </li>
- 
-</ul>
 
 <div class="parsys hidden-sm hidden-md hidden-lg">
  <div class="container">
@@ -28,30 +27,15 @@ if ( ! is_active_sidebar( 'sidebar-1' ) ) {
 
 	<div class="sidenavtitle">Saltar sección<span class="mh-mn-menu-arrow icon-arrow-down"><i class="fa fa-angle-right" aria-hidden="true"></i></span></div>
         <div class="panel-group" id="sidenav">
-            <h4 class="root-page-panel"> 
-                <a href="#" class="<?php // geturl("conocenos"); ?> collapsed">Relación con inversionistas</a>
-            </h4>
-        
-                  <div class="panel panel-default">
-                           <div class="panel-heading">
-                             <h4 class="panel-title">
-                                 <a href="/relacion-con-inversionistas/junta-general-de-accionistas" class="<?php geturl2("junta-general-de-accionistas"); ?> collapsed">Junta general de accionistas</a>
-                             </h4>
-                           </div>
-                           <div class="panel-heading">
-                             <h4 class="panel-title">
-                                 <a href="/relacion-con-inversionistas/proteccion-de-accionistas-minoritarios" class="<?php geturl2("proteccion-de-accionistas-minoritarios"); ?>  collapsed">Protección de accionistas minoritarios</a>
-                             </h4>
-                           </div>
-                           <div class="panel-heading">
-                             <h4 class="panel-title">
-                                 <a href="/relacion-con-inversionistas/contacto" class="<?php geturl2("contacto"); ?> collapsed"> Contacto</a>
-                             </h4>
-                           </div>
-                           
-                           
-                             
-                  </div>
+        <?php
+             wp_nav_menu( array( 
+                'theme_location' => 'sidebar4', 
+                'container_class' => 'SideNavMov',
+                'walker' => new Walker_sidebar_movile(),
+                'menu_class' => 'panel panel-default',
+                )
+            );   
+            ?>
                     
         </div>
 	 </div>

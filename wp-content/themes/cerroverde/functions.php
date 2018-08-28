@@ -28,6 +28,7 @@ function cerroverde_setup() {
         'sidebar1' => 'Menu sidebar',                      
         'sidebar2' => 'Menu sidebar',
         'sidebar3' => 'Menu sidebar',
+        'sidebar4' => 'Menu sidebar',
   ) );
 	
 	add_theme_support("html5", array("search-form",
@@ -41,6 +42,43 @@ endif;
 add_action("after_setup_theme", "cerroverde_setup" );
 
 
+
+class Walker_Quickstart_Menu extends Walker {
+
+    var $db_fields = array(
+        'parent' => 'menu_item_parent', 
+        'id'     => 'db_id' 
+    );
+
+    function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
+        $output .= sprintf( "\n<li ><a  href='%s' %s>%s</a></li>\n",
+            $item->url,
+            ( $item->object_id == get_the_ID() ) ? ' class="active"' : 'class="nodefault"',
+            $item->title
+        );
+    }
+
+}
+
+class Walker_sidebar_movile extends Walker{
+
+    var $db_fields = array(
+        'parent' => 'menu_item_parent',
+        'id' => 'mov_id'
+    );
+
+    function start_el( &$output,$item, $depth = 0, $args = array(), $id = 0 ){
+        $output .= sprintf('<div class="panel-heading">
+        <h4 class="panel-title">
+            <a href="%s" %s>%s</a>
+        </h4>
+      </div>',
+      $item->url,
+      ($item->object_id == get_the_ID()) ? 'class="active collapse"':'class"collapse"',
+      $item->title
+      );
+    }
+}
 
 
 /**
@@ -347,7 +385,7 @@ wp_enqueue_script("cerroverde_easing",get_template_directory_uri()."/js/vendor/j
 wp_enqueue_script("cerroverde_ttw",get_template_directory_uri()."/js/vendor/jquery.mobile.just-touch.js",array(),"20170101",true);
 wp_enqueue_script("cerroverde_parallax",get_template_directory_uri()."/vendor/js/jquery.parallax-1.1.3.js",array(),"20170101",true);
 wp_enqueue_script("cerroverde_timeline",get_template_directory_uri()."/js/timeline.js",array(),date("hms"),true);
-wp_enqueue_script("cerroverde_main",get_template_directory_uri()."/js/main.js?v=11",array(),date("hms"),true);
+wp_enqueue_script("cerroverde_main",get_template_directory_uri()."/js/main.js?v=".date("hms"),array(),date("hms"),true);
     
 }
 add_action("wp_enqueue_scripts", "cerroverdeprod_scripts" );

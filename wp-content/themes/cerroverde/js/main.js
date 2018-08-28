@@ -22,6 +22,8 @@ $(document).on('ready', function(){
 
 $('.js-timeline').Timeline();
 
+$("#menu-sidebar>li:first-child").addClass('nav-header');
+
 try{
 	var switrata = new Swiper('.slide-tratamiento', {
         pagination: '.swiper-pagination',
