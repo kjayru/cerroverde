@@ -1817,7 +1817,7 @@ footer {
 }
 footer .foo-sec1 {
     overflow: hidden;
-    padding: 18px 10px 18px 10px !important;
+    padding: 18px 0;
 }
 footer .foo-sec1 > img {
     float: left;
@@ -3460,14 +3460,6 @@ h2.entry-title a{
 	position:absolute;
 	left:0;
   }
-
-@media (max-width: 420){
-.page-template-home .capa-circulos .swiper-container {
-    width: 380px;
-    height: 273px;
-    margin: 20px auto;
-  }
-}
 @media (max-width: 979px) {
 #slideconoce {
 	height: 400px;
@@ -3491,7 +3483,7 @@ h2.entry-title a{
 }
 .limite>div{
 	padding-left:25px;
-	padding-top:0px;
+	padding-top:10px;
 	}
 .blq-trabaja .titulo:after {
     margin: 1px 0;
@@ -3624,7 +3616,7 @@ a.uenlace {
     margin-top: 0px;
 }
 .page-template-home .capa-circulos .swiper-container{
-    width: 580px;
+    width: 380px;
     height: 273px;
     margin: 20px auto;
 }
@@ -5029,9 +5021,7 @@ a.nombre-cat {
 }
 }
 @media (max-width: 767px) {
-	.bloqueview{
-		display:block !important;
-	}
+	
 	.presentacion-seccion{
      padding-top: 20px;
 	}
@@ -5586,78 +5576,6 @@ span.hidden-lg.hidden-sm.hidden-md.icon-arrow-down {
 .margtop60{
 	margin-top:60px;
 }
-
-
-@media only screen 
-and (min-device-width : 768px) 
-and (max-device-width : 1024px) 
-and (orientation : landscape) { 
-    
-}
-
-
-
-@media only screen 
-and (min-device-width : 768px) 
-and (max-device-width : 1024px) 
-and (orientation : portrait) {
-
-	.page-template-home .capa-circulos .swiper-container {
-    width: 593px !important;
-    height: 273px;
-    margin: 20px auto;
-	}
-	
-	header nav .menu-principal-container>ul>li ul {
-    position: absolute;
-    top: 60px;
-    left: 0;
-    width: 230px;
-    -webkit-transition: all ease-out .4s;
-    -moz-transition: all ease-out .4s;
-    -o-transition: all ease-out .4s;
-    -ms-transition: all ease-out .4s;
-    transition: all ease-out .4s;
-    height: 0;
-    overflow: hidden;
-    background: #fff;
-	}
-	.menu-principal-container {
-    height: 60px;
-    border: 0 !important;
-	}
-	header .extern {
-    float: right;
-    height: 60px;
-	}
-	header nav ul#navopcion a.buscar {
-    position: absolute;
-    top: -15px;
-    height: 61px;
-	}
-	header nav {
-    float: right;
-    height: 61px;
-     margin-right: 0; 
-    border: 0 !important;
-	}
-	.slider-principal {
-		height: calc(40%);
-		-webkit-background-size: cover;
-		-moz-background-size: cover;
-		background-size: cover;
-	}
-	.playerdiv {
-		width: 135%;
-		height: 67vh;
-		margin-top: -25%;
-	}
-	.wmsec p {
-		margin-top: 20%;
-		margin-left: 30px;
-	}
-}
-
 
 
 /*footer dinamic*/

@@ -23,12 +23,8 @@ function cerroverde_setup() {
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
-        'top' => 'Menu top pagina',
-        'footer' => 'Menu pie pagina',
-        'sidebar1' => 'Menu sidebar',                      
-        'sidebar2' => 'Menu sidebar',
-        'sidebar3' => 'Menu sidebar',
-        'sidebar4' => 'Menu sidebar',
+	'menu-1' => 'Menu Principal',
+	'footer_menu' => 'My Custom Footer Menu',
   ) );
 	
 	add_theme_support("html5", array("search-form",
@@ -42,43 +38,6 @@ endif;
 add_action("after_setup_theme", "cerroverde_setup" );
 
 
-
-class Walker_Quickstart_Menu extends Walker {
-
-    var $db_fields = array(
-        'parent' => 'menu_item_parent', 
-        'id'     => 'db_id' 
-    );
-
-    function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
-        $output .= sprintf( "\n<li ><a  href='%s' %s>%s</a></li>\n",
-            $item->url,
-            ( $item->object_id == get_the_ID() ) ? ' class="active"' : 'class="nodefault"',
-            $item->title
-        );
-    }
-
-}
-
-class Walker_sidebar_movile extends Walker{
-
-    var $db_fields = array(
-        'parent' => 'menu_item_parent',
-        'id' => 'mov_id'
-    );
-
-    function start_el( &$output,$item, $depth = 0, $args = array(), $id = 0 ){
-        $output .= sprintf('<div class="panel-heading">
-        <h4 class="panel-title">
-            <a href="%s" %s>%s</a>
-        </h4>
-      </div>',
-      $item->url,
-      ($item->object_id == get_the_ID()) ? 'class="active collapse"':'class"collapse"',
-      $item->title
-      );
-    }
-}
 
 
 /**
@@ -365,44 +324,92 @@ function cerroverdeprod_scripts() {
 	wp_enqueue_style("cerroverde-mightyslider", get_template_directory_uri()."/vendor/css/mightyslider.css",array(),"20151215",false);
 	wp_enqueue_style("cerroverde-mightyslider-anim", get_template_directory_uri()."/vendor/css/mightyslider.animate.css",array(),"20151215",false);
 	wp_enqueue_style("cerroverde-awesome", get_template_directory_uri()."/css/font-awesome.min.css",array(),date("Yhms"),false);
+	
+	wp_enqueue_style("cerroverde-lightbox", get_template_directory_uri()."/lib/lightbox/ekko-lightbox.css",array(),"20151215",false);
+	
 	wp_enqueue_style("cerroverde-timeline", get_template_directory_uri()."/css/timeline.css",array(),date("hms"),false);
 	wp_enqueue_style("cerroverde-main", get_template_directory_uri()."/css/main.css",array(),date("sdmhms"),false);
-	wp_enqueue_style("cerroverde-style", get_template_directory_uri()."/css/style.css?v=126",array(),"20180616",false);
+	
+	wp_enqueue_style("cerroverde_swiper",get_template_directory_uri().'/lib/swiper/css/swiper.min.css',"",false);
+	
+	wp_enqueue_style("cerroverde-style", get_template_directory_uri()."/css/style.css?v=136",array(),"20180616",false);
 	wp_enqueue_style("cerroverde-anim-2", get_template_directory_uri()."/css/anim.css",array(),"20151215",false);
     
-    /*wp_enqueue_script("cerroverde_jquery",get_template_directory_uri()."/js/vendor/jquery-1.12.0.min.js",array(),"20170101",true);
-    wp_enqueue_script("cerroverde_scriptmin",get_template_directory_uri()."/assets/js/scripts.min.js",array(),"20170101",true);
-	wp_enqueue_script("cerroverde_main",get_template_directory_uri()."/js/main.js?v=7",array(),date("hms"),true);*/
+	/*
+    wp_enqueue_script("cerroverde_jquery",get_template_directory_uri()."/js/vendor/jquery-1.12.0.min.js",array(),"20170101",true);
+   
 	
+	wp_enqueue_script("cerroverde_scriptmin",get_template_directory_uri()."/assets/js/scripts.min.js",array(),"20170101",true);
+
+	
+	
+	wp_enqueue_script("cerroverde_main",get_template_directory_uri()."/js/main.js?v=28",array(),date("hms"),true);*/
+
+wp_deregister_script( 'jquery' ); // 
+wp_deregister_script( 'jquery-migrate.min' ); 
+	
+
+	wp_enqueue_script( 'cerroverde_swiper',get_template_directory_uri().'/lib/swiper/js/swiper.min.js', array(),"20170101", true );
+wp_enqueue_script("cerroverde_tweenlite",get_template_directory_uri()."/vendor/js/tweenlite.js",array(),false,true);	
+	
+
 wp_enqueue_script("cerroverde_jquery",get_template_directory_uri()."/vendor/js/jquery.min.js",array(),"20170101",true);
+	wp_enqueue_script("cerroverde_migrate",get_template_directory_uri()."/vendor/js/jquery.migrate.min.js",array(),"20170101",true);
+wp_enqueue_script("cerroverde_bootstrap",get_template_directory_uri()."/vendor/js/bootstrap.min.js",array(),"20170101",true);
+	wp_enqueue_script("cerroverde_timeline",get_template_directory_uri()."/js/timeline.js",array(),date("hms"),true);
+
+	
 wp_enqueue_script("cerroverde_mightyslider",get_template_directory_uri()."/vendor/js/mightyslider.min.js",array(),"20170101",true);
 wp_enqueue_script("cerroverde_mightyslider_anim",get_template_directory_uri()."/vendor/js/mightyslider.animate.plugin.min.js",array(),"20170101",true);
-wp_enqueue_script("cerroverde_migrate",get_template_directory_uri()."/vendor/js/jquery.migrate.min.js",array(),"20170101",true);
-wp_enqueue_script("cerroverde_bootstrap",get_template_directory_uri()."/vendor/js/bootstrap.min.js",array(),"20170101",true);
-wp_enqueue_script("cerroverde_mobile",get_template_directory_uri()."/js/vendor/mobile-detect.js",array(),"20170101",true);
-wp_enqueue_script("cerroverde_tweenlite",get_template_directory_uri()."/vendor/js/tweenlite.js",array(),"20170101",true);
+
 wp_enqueue_script("cerroverde_easing",get_template_directory_uri()."/js/vendor/jquery.easing-1.3.pack.js",array(),"20170101",true);
 wp_enqueue_script("cerroverde_ttw",get_template_directory_uri()."/js/vendor/jquery.mobile.just-touch.js",array(),"20170101",true);
-wp_enqueue_script("cerroverde_parallax",get_template_directory_uri()."/vendor/js/jquery.parallax-1.1.3.js",array(),"20170101",true);
-wp_enqueue_script("cerroverde_timeline",get_template_directory_uri()."/js/timeline.js",array(),date("hms"),true);
-wp_enqueue_script("cerroverde_main",get_template_directory_uri()."/js/main.js?v=".date("hms"),array(),date("hms"),true);
+	wp_enqueue_script("cerroverde_mobile",get_template_directory_uri()."/js/vendor/mobile-detect.js",array(),"20170101",true);
+
+
+	
+wp_enqueue_script( 'cerroverde_lightbox', get_template_directory_uri().'/lib/lightbox/ekko-lightbox.min.js', array(),"20170101", true );
+	
+wp_enqueue_script( 'cerroverde_scroll', get_template_directory_uri().'/lib/scroll/scroll-min.js', array(),"20170101", true );
+	
+	wp_enqueue_script("cerroverde_main",get_template_directory_uri()."/js/main.js?v=58",array(),date("hms"),true);
+	
     
 }
 add_action("wp_enqueue_scripts", "cerroverdeprod_scripts" );
 
 
-function add_async_to_script($tag, $handle) {
-   // agregar los handles o identificadores de los scripts al array
-   $scripts_to_async = array('script-name', 'script-2');
+/*
+function load_google_fonts() {
+    wp_enqueue_style( 'opensans-font', esc_url_raw( 'https://fonts.googleapis.com/css?family=Open+Sans:400,700|Lato:100,100i,300,300i,400,400i,700,700i,900,900i' ) );
     
-  // recorremos el array y agregamos el atributo async defer
-   foreach($scripts_to_async as $async_script) {
-      if ($async_script === $handle) {
-         return str_replace(' src', ' async defer src', $tag);
-      }
-   }
-   return $tag;
 }
-add_filter('script_loader_tag', 'add_async_to_script', 10, 2);
+add_action( 'wp_enqueue_scripts', 'load_google_fonts' );*/
+ 
+
+ add_action('customize_register', 'customizer'); 
+function defer_parsing_of_js ( $url ) {
+	if ( FALSE === strpos( $url, '.js' ) ) 
+		return $url; 
+	if ( strpos( $url, 'jquery.js' ) ) 
+		return $url; return "$url' defer ";
+} 
+add_filter( 'clean_url', 'defer_parsing_of_js', 11, 1 );
+
+
+//disabled notifications
+remove_action('load-update-core.php', 'wp_update_plugins');
+add_filter('pre_site_transient_update_plugins', '__return_null');
+
+add_action('after_setup_theme', 'remove_core_updates');
+
+function remove_core_updates() {
+	if (!current_user_can('update_core')) {
+		return;
+	}
+	add_action('init', create_function('$a', "remove_action( 'init', 'wp_version_check' );"), 2);
+	add_filter('pre_option_update_core', '__return_null');
+	add_filter('pre_site_transient_update_core', '__return_null');
+}
 
 

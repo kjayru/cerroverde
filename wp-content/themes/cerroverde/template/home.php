@@ -9,9 +9,7 @@ while ( have_posts() ) {
 
          <section class="slider-principal version2 rotador-contenedor animation fadeInUp animation-visible" data-animation="fadeInUp">
                     <div class="swiper-container rotador-padre">
-                        <div class="swiper-wrapper rotador-interior rt-home">
-                        
-                        
+                        <div class="swiper-wrapper rotador-interior rt-home">                  
     		 <?php 
 						$argi=array(
 						  'suppress_filters' => false,
@@ -38,10 +36,8 @@ while ( have_posts() ) {
 					$tipo_enlace = get_field("tipo_enlace",$slider->ID);
 					$enlace = get_field("enlace",$slider->ID);
 					$enlace_externo = get_field("enlace_externo",$slider->ID);
-					
-					
-					
-				        if($tipo=="Video"){ ?>
+							
+				        if($tipo=="video"){ ?>
 					 
 							<article class="swiper-slide rotador-unidad">
 						
@@ -57,7 +53,7 @@ while ( have_posts() ) {
 					 ?>
 					
 						 
-					<?php if($tipo=="Video"){
+					<?php if($tipo=="video"){
 						
 							
 						?>
@@ -266,7 +262,7 @@ while ( have_posts() ) {
 						</div>
 					</div>
 					<div class="col-md-12">	
-						<div class="list-posts">
+					<div class="list-posts">
 							<div class="swiper-wrapper">
 							<?php 
 							$args = array(
@@ -293,11 +289,27 @@ while ( have_posts() ) {
 								$mes = get_field('mes',$prensa->ID);
 								$destacado = get_field('destacado',$prensa->ID);
 								
+									
+									
+									// vars
+								$url = $imagen['url'];
+								$title = $imagen['title'];
+								$alt = $imagen['alt'];
+								$caption = $imagen['caption'];
+
+								// thumbnail
+								$size = 'medium';
+								$thumb = $imagen['sizes'][ $size ];
+								$width = $imagen['sizes'][ $size . '-width' ];
+								$height = $imagen['sizes'][ $size . '-height' ];
+									
+									
+									
 								if($destacado=="Si"){ ?> 
 								
 								<article class=" item-posts swiper-slide">
-									<div class="imagen">
-										<img src="<?php echo $imagen['url'];?>" alt="">
+									<div class="imagen center-block">
+										<img src="<?php echo $thumb; ?>" alt="<?php echo $alt; ?>" class="img-responsive">
 									</div>
 									<div class="date">
 										<span><?php 
