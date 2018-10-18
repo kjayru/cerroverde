@@ -6,12 +6,12 @@ function create_post_type_desarrollo(){
 					'name' => __('Desarrollo sostenible'),
 					'query_var' => true,
 					'hierarchical' => true,
-					'singular_name' => __('Panel')
+					'singular_name' => __('HomeDesarrollo')
 				),
 				'public' => true,
 				'has_archive' => false,
 				'capability_type' => 'post',
-				'menu_icon' => get_template_directory_uri().'/desarrollo/images/icon.png',
+				'menu_icon' =>'dashicons-images-alt2',
 				'rewrite' => array('slug'=> 'leermas','with_front'=> false),
 				'supports' => array('title','editor','thumbnail'),
 				'taxonomies' => array('category')

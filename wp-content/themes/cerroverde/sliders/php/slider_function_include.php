@@ -6,12 +6,12 @@ function create_post_type_slider(){
 					'name' => __('Slider Home'),
 					'query_var' => true,
 					'hierarchical' => true,
-					'singular_name' => __('Panel')
+					'singular_name' => __('SliderHome')
 				),
 				'public' => true,
 				'has_archive' => false,
 				'capability_type' => 'post',
-				'menu_icon' => get_template_directory_uri().'/sliders/images/icon.png',
+				'menu_icon' => 'dashicons-id',
 				'rewrite' => array('slug'=> 'leermas','with_front'=> false),
 				'supports' => array('title','editor','thumbnail')
 		)

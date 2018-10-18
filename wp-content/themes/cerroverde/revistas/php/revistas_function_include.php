@@ -6,12 +6,12 @@ function create_post_type_revistas(){
 					'name' => __('Revistas y boletines'),
 					'query_var' => true,
 					'hierarchical' => true,
-					'singular_name' => __('Panel')
+					'singular_name' => __('RevistasBoletines')
 				),
 				'public' => true,
 				'has_archive' => false,
 				'capability_type' => 'post',
-				'menu_icon' => get_template_directory_uri().'/sliders/images/icon.png',
+				'menu_icon' => 'dashicons-id-alt',
 				'rewrite' => array('slug'=> 'category/revistas-y-boletines','with_front'=> false),
 				'supports' => array('title','editor','thumbnail'),
 				'taxonomies' => array('category')

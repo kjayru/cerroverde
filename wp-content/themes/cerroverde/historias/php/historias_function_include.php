@@ -5,12 +5,12 @@
 					'name' => __('Historias'),
 					'query_var' => true,
 					'hierarchical' => true,
-					'singular_name' => __('Panel')
+					'singular_name' => __('Historias')
 				),
 				'public' => true,
 				'has_archive' => false,
 				'capability_type' => 'post',
-				'menu_icon' => get_template_directory_uri().'/historias/icon.png',
+				'menu_icon' => 'dashicons-backup',
 				'rewrite' => array('slug'=> 'menu','with_front'=> false),
 				'supports' => array('title','editor','thumbnail')
 		  		

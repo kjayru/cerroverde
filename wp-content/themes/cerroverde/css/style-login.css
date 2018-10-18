@@ -1,0 +1,13 @@
+body.login div#login form#loginform input:focus {
+    border-color: #f96100;
+    box-shadow: 0 0 2px rgba(249,97,0,.8);
+}
+
+body.login div#login form#loginform p.submit input#wp-submit {
+    background: #f96100;
+    border-color: #f78138 #f96100 #f96100;
+    box-shadow: 0 1px 0 #f96100;
+    color: #fff;
+    text-decoration: none;
+    text-shadow: 0 -1px 1px #f96100, 1px 0 1px #f96100, 0 1px 1px #f96100, -1px 0 1px #f96100;
+}
